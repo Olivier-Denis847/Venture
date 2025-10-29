@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{PRODUCT_NAME}} — LaunchPad</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://kit.fontawesome.com/a2d9d6a2a2.js" crossorigin="anonymous"></script>
+
+  <style>
+    body {
+      background: linear-gradient(135deg, #0e0e10, #1a1a2e);
+      color: #e5e7eb;
+      font-family: 'Inter', sans-serif;
+    }
+    .hero-bg {
+      background: radial-gradient(circle at 50% 50%, #2b2b4b, #12121c);
+      clip-path: ellipse(75% 40% at 50% 40%);
+    }
+    .glow-button {
+      background: linear-gradient(90deg, #4f46e5, #06b6d4);
+      box-shadow: 0 0 10px #4f46e5, 0 0 20px #06b6d4;
+      transition: transform 0.2s, box-shadow 0.3s;
+    }
+    .glow-button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px #818cf8, 0 0 40px #06b6d4;
+    }
+    #widget button:hover {
+      transform: scale(1.05);
+      transition: 0.2s;
+    }
+    /* Carousel styling */
+    .tweet-carousel {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      gap: 1rem;
+      padding-bottom: 1rem;
+    }
+    .tweet-card {
+      flex: 0 0 auto;
+      width: 280px;
+      background: #1f2937;
+      border-radius: 1rem;
+      padding: 1rem;
+      box-shadow: 0 0 10px rgba(79, 70, 229, 0.4);
+      scroll-snap-align: start;
+      transition: transform 0.2s ease;
+    }
+    .tweet-card:hover {
+      transform: translateY(-4px);
+    }
+    /* Input fields styling */
+    .input-field {
+      background: rgba(31, 41, 55, 0.8);
+      border: 1px solid #374151;
+      border-radius: 0.75rem;
+      padding: 0.75rem 1rem;
+      color: #e5e7eb;
+      width: 60%;
+      margin: 0.5rem auto;
+      text-align: center;
+      display: block;
+    }
+    .input-field:focus {
+      outline: none;
+      border-color: #06b6d4;
+      box-shadow: 0 0 10px #06b6d4;
+    }
+  </style>
+</head>
+
+<body class="antialiased">
+
+  <!-- Hero Section -->
+  <section class="relative hero-bg p-12 text-center rounded-b-3xl shadow-lg mb-12">
+    <h1 class="text-5xl font-extrabold mb-4 tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-400 to-cyan-400">
+      {{PRODUCT_NAME}}
+    </h1>
+    <p class="text-xl text-gray-300 mb-8">{{PRODUCT_TAGLINE}}</p>
+    <img src="{{HERO_IMAGE}}" alt="Hero Image" class="mx-auto rounded-2xl shadow-2xl w-80 h-80 object-contain mb-6">
+
+    <!-- Editable Fields -->
+    <input type="text" id="productNameInput" class="input-field text-2xl font-semibold" placeholder="Product Name">
+    <input type="text" id="productTaglineInput" class="input-field text-md italic" placeholder="Tagline goes here...">
+  </section>
+
+  <div class="container mx-auto px-6">
+
+    <!-- Product Description -->
+    <section class="mb-12">
+      <h2 class="text-3xl font-semibold mb-4 text-indigo-300">About the Product</h2>
+      <p class="text-lg leading-relaxed text-gray-300">
+        {{PRODUCT_DESCRIPTION}}
+      </p>
+    </section>
+
+    <!-- Interactive Widget -->
+    <section class="mb-12 p-6 bg-gray-900 rounded-xl shadow-inner border border-gray-700">
+      <h2 class="text-2xl font-semibold mb-4 text-cyan-300">Try It Yourself</h2>
+      <div id="widget">
+        {{WIDGET_HTML}}
+      </div>
+    </section>
+
+    <!-- Pitch Deck -->
+    <section class="mb-12 text-center">
+      <h2 class="text-2xl font-semibold mb-4 text-purple-300">Pitch Deck</h2>
+      <button id="pitchDeckButton" class="inline-block px-6 py-3 rounded-full font-bold glow-button text-white">
+        View the Pitch Deck
+      </button>
+
+      <div id="pitchDeckContainer" class="mt-6 hidden">
+        <p id="loadingText" class="text-gray-400 mb-4 italic">loading...</p>
+        <div class="flex justify-center gap-4">
+          <div class="w-56 h-36 bg-gray-800 rounded-lg shadow-md"></div>
+          <div class="w-56 h-36 bg-gray-800 rounded-lg shadow-md"></div>
+          <div class="w-56 h-36 bg-gray-800 rounded-lg shadow-md"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Post on Social Media -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-semibold mb-6 text-cyan-300 text-center">Post on Social Media</h2>
+      <div class="tweet-carousel">
+        <div class="tweet-card">
+          <p class="text-sm text-gray-400">@techguru</p>
+          <p class="text-md mt-2">“I just used {{PRODUCT_NAME}} and now I see through time.”</p>
+        </div>
+        <div class="tweet-card">
+          <p class="text-sm text-gray-400">@dev_doomer</p>
+          <p class="text-md mt-2">This product changed nothing, and I love it. #Innovation</p>
+        </div>
+        <div class="tweet-card">
+          <p class="text-sm text-gray-400">@elonmuskmaybe</p>
+          <p class="text-md mt-2">Funding secured for {{PRODUCT_NAME}}. Mars integration pending.</p>
+        </div>
+        <div class="tweet-card">
+          <p class="text-sm text-gray-400">@existentialai</p>
+          <p class="text-md mt-2">Does {{PRODUCT_NAME}} actually work? That’s beside the point.</p>
+        </div>
+        <div class="tweet-card">
+          <p class="text-sm text-gray-400">@spiritual_startup</p>
+          <p class="text-md mt-2">I didn’t understand {{PRODUCT_NAME}}, but I felt its energy.</p>
+        </div>
+      </div>
+
+      <!-- Social Icons -->
+      <div class="flex justify-center mt-8 space-x-8 text-2xl">
+        <a href="https://www.linkedin.com" target="_blank" class="text-blue-400 hover:text-blue-300"><i class="fab fa-linkedin"></i></a>
+        <a href="https://www.instagram.com" target="_blank" class="text-pink-500 hover:text-pink-400"><i class="fab fa-instagram"></i></a>
+        <a href="https://twitter.com" target="_blank" class="text-sky-400 hover:text-sky-300"><i class="fab fa-twitter"></i></a>
+        <a href="https://discord.com" target="_blank" class="text-indigo-400 hover:text-indigo-300"><i class="fab fa-discord"></i></a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center py-8 border-t border-gray-700 mt-12">
+      <p class="text-gray-500 text-sm">
+        LaunchPad™ — Overengineered, proudly pointless.
+      </p>
+    </footer>
+
+  </div>
+
+  <!-- Floating widget animation -->
+  <script>
+    const widget = document.getElementById('widget');
+    if (widget) {
+      setInterval(() => {
+        widget.style.transform = `translateY(${Math.sin(Date.now()/700)*5}px)`;
+      }, 50);
+    }
+
+    // Pitch Deck button logic
+    const btn = document.getElementById('pitchDeckButton');
+    const container = document.getElementById('pitchDeckContainer');
+
+    btn.addEventListener('click', () => {
+      container.classList.remove('hidden');
+      const loadingText = document.getElementById('loadingText');
+      setTimeout(() => {
+        loadingText.textContent = 'Loaded!';
+        loadingText.classList.remove('italic');
+      }, 2000);
+    });
+  </script>
+</body>
+</html>

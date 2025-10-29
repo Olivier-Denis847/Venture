@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Opulent Product Showcase</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/a2d04b4d3f.js" crossorigin="anonymous"></script>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Playfair Display', serif;
+      background: linear-gradient(to bottom right, #0b0b0b, #1b1b1b);
+      color: #d4af37;
+      overflow-x: hidden;
+    }
+
+    header {
+      text-align: center;
+      padding: 4rem 2rem 2rem;
+      background: linear-gradient(180deg, rgba(212, 175, 55, 0.1), transparent);
+    }
+
+    header img {
+      width: 80%;
+      max-width: 800px;
+      height: auto;
+      object-fit: cover;
+      border-radius: 20px; /* rectangular, not oval */
+      border: 2px solid #d4af37;
+      box-shadow: 0 0 25px rgba(212, 175, 55, 0.3);
+    }
+
+    .product-name {
+      margin-top: 2rem;
+      font-size: 3rem;
+      font-family: 'Cinzel', serif;
+      font-weight: 700;
+      color: #f3e7c6;
+      letter-spacing: 2px;
+      text-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+    }
+
+    .product-tagline {
+      font-size: 1.3rem;
+      font-style: italic;
+      color: #c7b273;
+      margin-top: 0.5rem;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 2rem;
+      border: 1px solid rgba(212, 175, 55, 0.2);
+      border-radius: 20px;
+      background: rgba(25, 25, 25, 0.6);
+      box-shadow: 0 0 30px rgba(212, 175, 55, 0.08);
+    }
+
+    section {
+      margin-bottom: 3rem;
+    }
+
+    h2 {
+      text-align: center;
+      font-family: 'Cinzel', serif;
+      color: #f5deb3;
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+      display: inline-block;
+      padding-bottom: 0.25rem;
+    }
+
+    .about-text {
+      text-align: center;
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: #e9dba5;
+      background: rgba(40, 40, 40, 0.6);
+      padding: 1rem 2rem;
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgba(212, 175, 55, 0.1);
+    }
+
+    /* Carousel styling */
+    .carousel-container {
+      display: flex;
+      overflow-x: auto;
+      gap: 1.2rem;
+      padding: 1rem;
+      scroll-snap-type: x mandatory;
+    }
+
+    .carousel-item {
+      flex: 0 0 250px;
+      height: 120px;
+      background: linear-gradient(135deg, #2b2b2b, #1b1b1b);
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      border-radius: 12px;
+      box-shadow: 0 0 12px rgba(212, 175, 55, 0.1);
+      scroll-snap-align: start;
+    }
+
+    .social-icons {
+      text-align: center;
+      margin-top: 1rem;
+    }
+
+    .social-icons a {
+      color: #d4af37;
+      margin: 0 10px;
+      font-size: 1.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      color: #fff;
+      transform: scale(1.2);
+    }
+
+    /* Pitch Deck Section */
+    .pitch-deck {
+      text-align: center;
+    }
+
+    .pitch-button {
+      background: transparent;
+      border: 2px solid #d4af37;
+      color: #d4af37;
+      font-weight: bold;
+      border-radius: 30px;
+      padding: 1rem 2rem;
+      cursor: pointer;
+      font-family: 'Cinzel', serif;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .pitch-button:hover {
+      background: #d4af37;
+      color: #0b0b0b;
+      transform: translateY(-2px);
+    }
+
+    .loading-text {
+      margin-top: 1rem;
+      color: #e9dba5;
+      font-style: italic;
+      display: none;
+    }
+
+    .slide-placeholder {
+      width: 80%;
+      height: 160px;
+      margin: 1rem auto;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(212, 175, 55, 0.1);
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <img src="your-hero-image.png" alt="Hero Image" />
+    <h1 class="product-name">Product Name</h1>
+    <p class="product-tagline">Your elegant tagline goes here.</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>About the Project</h2>
+      <p class="about-text">
+        This masterpiece of luxury and overengineering redefines what it means to create unnecessary brilliance. The elegance lies not in purpose, but in presentation.
+      </p>
+    </section>
+
+    <section>
+      <h2>Post on Social Media</h2>
+      <div class="carousel-container">
+        <div class="carousel-item"></div>
+        <div class="carousel-item"></div>
+        <div class="carousel-item"></div>
+        <div class="carousel-item"></div>
+        <div class="carousel-item"></div>
+      </div>
+      <div class="social-icons">
+        <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="https://discord.com" target="_blank"><i class="fab fa-discord"></i></a>
+      </div>
+    </section>
+
+    <section class="pitch-deck">
+      <h2>Pitch Deck</h2>
+      <button class="pitch-button" onclick="showPitchDeck()">View the Pitch Deck</button>
+      <p class="loading-text" id="loadingText">Loading...</p>
+      <div class="slide-placeholder" id="slide1"></div>
+      <div class="slide-placeholder" id="slide2"></div>
+      <div class="slide-placeholder" id="slide3"></div>
+    </section>
+  </main>
+
+  <script>
+    function showPitchDeck() {
+      const loadingText = document.getElementById("loadingText");
+      const slides = [document.getElementById("slide1"), document.getElementById("slide2"), document.getElementById("slide3")];
+      loadingText.style.display = "block";
+      setTimeout(() => {
+        slides.forEach(slide => (slide.style.display = "block"));
+        loadingText.style.display = "none";
+      }, 1500);
+    }
+  </script>
+</body>
+</html>
