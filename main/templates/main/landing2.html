@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LaunchPad - Generated Product</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background: linear-gradient(135deg, #1e1e2f, #2d2d44);
+      color: #f9f9f9;
+    }
+    .hero-bg {
+      background: radial-gradient(circle at center, #ff7f50, #ff3d00);
+      clip-path: ellipse(70% 40% at 50% 50%);
+    }
+    .glow-button {
+      text-shadow: 0 0 10px #ff3d00, 0 0 20px #ff7f50;
+      transition: transform 0.2s;
+    }
+    .glow-button:hover {
+      transform: scale(1.05);
+    }
+    #widget button:hover {
+      transform: scale(1.05);
+      transition: 0.2s;
+    }
+  </style>
+</head>
+<body class="font-sans">
+
+  <!-- Header / Hero Section -->
+  <section class="relative hero-bg p-12 text-center rounded-b-3xl shadow-lg mb-12">
+    <h1 class="text-5xl font-extrabold mb-4 animate-pulse">🚀 {{PRODUCT_NAME}}</h1>
+    <p class="text-xl mb-6">{{PRODUCT_TAGLINE}}</p>
+    <img src="{{HERO_IMAGE}}" alt="Hero Image" class="mx-auto rounded-lg shadow-2xl w-96 h-96 object-contain animate-bounce">
+  </section>
+
+  <div class="container mx-auto px-6">
+
+    <!-- Product Description -->
+    <section class="mb-12">
+      <h2 class="text-3xl font-bold mb-4 text-orange-400">About This Revolutionary Product</h2>
+      <p class="text-lg leading-relaxed bg-gradient-to-r from-pink-400 via-purple-500 to-indigo-600 bg-clip-text text-transparent">
+        {{PRODUCT_DESCRIPTION}}
+      </p>
+    </section>
+
+    <!-- Interactive Widget -->
+    <section class="mb-12 p-6 bg-gray-800 rounded-xl shadow-inner">
+      <h2 class="text-2xl font-bold mb-4 text-green-400">Interactive Demo</h2>
+      <div id="widget">
+        {{WIDGET_HTML}}
+      </div>
+    </section>
+
+    <!-- Demo Video -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold mb-4 text-blue-400">Watch It In Action</h2>
+      <video src="{{DEMO_VIDEO}}" controls class="mx-auto rounded-xl shadow-2xl w-full md:w-3/4 lg:w-1/2"></video>
+    </section>
+
+    <!-- Pitch Deck -->
+    <section class="mb-12 text-center">
+      <h2 class="text-2xl font-bold mb-4 text-purple-400">Pitch Deck</h2>
+      <a href="{{PITCH_DECK}}" target="_blank" class="inline-block px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-500 rounded-full font-bold glow-button">
+        Download Pitch Deck
+      </a>
+    </section>
+
+    <!-- Social Copy -->
+    <section class="mb-12 text-center">
+      <h2 class="text-2xl font-bold mb-4 text-yellow-400">Social Buzz</h2>
+      <p class="italic text-lg bg-gradient-to-r from-yellow-400 via-red-400 to-pink-500 bg-clip-text text-transparent">
+        {{SOCIAL_COPY}}
+      </p>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center py-6 border-t border-gray-700">
+      <p class="text-gray-400">LaunchPad ™ - Fully Overengineered, Completely Useless Products</p>
+    </footer>
+
+  </div>
+
+  <!-- Optional JS for minor animations -->
+  <script>
+    // Simple floating animation for interactive widget
+    const widget = document.getElementById('widget');
+    if (widget) {
+      setInterval(() => {
+        widget.style.transform = `translateY(${Math.sin(Date.now()/500)*5}px)`;
+      }, 50);
+    }
+  </script>
+
+</body>
+</html>
