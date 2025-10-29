@@ -30,7 +30,7 @@ def procuct_theme(product: str) -> str:
 def product_description(product: str) -> str:
     response = client.models.generate_content(
         model="gemini-2.5-flash",
-        contents=f"Provide a short and catchy description for a product named {product}. Respond with only the description."
+        contents=f"Provide a catchy description (2-3 sentences) for a product named {product}. Respond with only the description."
     )
     return response.text.strip()
 
@@ -57,7 +57,6 @@ def product_logo(product: str) -> str:
     return data_url
 
 def product_slide(product: str, mode: int) -> str:
-    print('===============================', mode)
     if not mode in (0,1,2):
         mode = 0
     version = ['title', 'graphs', 'product mark-up']
@@ -70,6 +69,7 @@ def product_slide(product: str, mode: int) -> str:
             personGeneration = "dont_allow"
         )
     )
+    response.images[0].show()
     data = response.images[0].image_bytes
     image = Image.open(BytesIO(data))
     return image

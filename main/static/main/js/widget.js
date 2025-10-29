@@ -1,4 +1,4 @@
- export async function slides () {
+ async function slides () {
     for (let i = 0; i < 3; i++){
         fetch('/slides')
         .then(response => response.json())
@@ -11,5 +11,5 @@
     }
  }
 document.addEventListener('DOMContentLoaded', () => {
-   slides()
+    slides()
 })

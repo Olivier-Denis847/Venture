@@ -32,6 +32,8 @@ def landing(request, prompt):
     description = gemini.product_description(product)
     tagline = gemini.product_tagline(product)
     logo_img = gemini.product_logo(product)
+    gemini.product_slide(product, 0)
+    gemini.product_slide(product, 1)
     return render(request, route, {
         'product' : product,
         'description' : description,
