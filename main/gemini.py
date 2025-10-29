@@ -33,10 +33,10 @@ def product_tagline(product: str) -> str:
     )
     return response.text.strip()
 
-def product_logo(prompt: str) -> Image.Image:
+def product_logo(product: str) -> str:
     response = client.models.generate_images(
         model='imagen-4.0-generate-001',
-        prompt=f'Make a logo for a product called {prompt}. Only make one image, do not include the product name.',
+        prompt=f'Make a logo for a product called {product}. Only make one image, do not include the product name.',
         config=types.GenerateImagesConfig(
             output_mime_type = "image/jpeg",
             number_of_images= 1,
@@ -47,3 +47,20 @@ def product_logo(prompt: str) -> Image.Image:
     b64data = base64.b64encode(data).decode('utf-8')
     data_url = f"data:{response.images[0].mime_type};base64,{b64data}"
     return data_url
+
+def product_slide(product: str, mode: int) -> str:
+    if not mode in (0,1,2):
+        mode = 0
+    version = ['title', 'buisness metrics', 'product mark-up']
+    response = client.models.generate_images(
+        model='imagen-4.0-generate-001',
+        prompt=f'Create a {version[mode]} slide, for a product called {product},',
+        config=types.GenerateImagesConfig(
+            output_mime_type = "image/jpeg",
+            number_of_images= 1,
+            personGeneration = "dont_allow"
+        )
+    )
+    data = response.images[0].image_bytes
+    image = Image.open(BytesIO(data))
+    return image

@@ -2,11 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <script src = "{% static 'main/widget.js' %}"></script>
 </head>
 <body>
     <h1>{{ product }}</h1>
     <h2>{{ tagline }}</h2>
     <p>{{ description }}</p>
-    <img src ="{{ img }}" alt="Product Image">
+    <img src ="{{ logo_img }}" alt="Product Image">
+    <div id="slides"></div>
 </body>
 </html>
