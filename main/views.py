@@ -19,6 +19,6 @@ def index(request):
 
 def landing(request, prompt):
     product = gemini.product_name(prompt)
-    return render(request, 'main/landing.html', {
+    return render(request, 'main/landing2.html', {
         'product' : product
     })
