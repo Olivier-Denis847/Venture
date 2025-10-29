@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -166,16 +168,16 @@
 
 <body>
   <header>
-    <img src="your-hero-image.png" alt="Hero Image" />
-    <h1 class="product-name">Product Name</h1>
-    <p class="product-tagline">Your elegant tagline goes here.</p>
+    <img src="{{logo_img}}" alt="Hero Image" />
+    <h1 class="product-name">{{product}}</h1>
+    <p class="product-tagline">{{tagline}}</p>
   </header>
 
   <main>
     <section>
       <h2>About the Project</h2>
       <p class="about-text">
-        This masterpiece of luxury and overengineering redefines what it means to create unnecessary brilliance. The elegance lies not in purpose, but in presentation.
+       {{description}}
       </p>
     </section>
 
@@ -217,5 +219,6 @@
       }, 1500);
     }
   </script>
+  <script src = "{% static 'main/js/widget.js' %}"></script>
 </body>
 </html>

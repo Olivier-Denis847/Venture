@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -185,15 +186,16 @@
 </head>
 <body>
   <header>
-    <h1 class="product-name">Product Name</h1>
-    <p class="product-tagline">Your sleek tech tagline goes here.</p>
+    <img src="{{logo_img}}" alt="Hero Image" />
+    <h1 class="product-name">{{product}}</h1>
+    <p class="product-tagline">{{tagline}}</p>
   </header>
 
   <main>
     <section>
       <h2>About the Project</h2>
       <p class="about-text">
-        This overengineered tech marvel redefines unnecessary brilliance with Apple-esque minimalism and precision. Sleek, polished, and almost believable.
+        {{description}}
       </p>
     </section>
 
@@ -235,5 +237,6 @@
       }, 1500);
     }
   </script>
+  <script src = "{% static 'main/js/widget.js' %}"></script>
 </body>
 </html>

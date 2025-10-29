@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -169,16 +171,16 @@
 
 <body>
   <header>
-    <img src="your-hero-image.png" alt="Hero Image" />
-    <h1 class="product-name">Product Name</h1>
-    <p class="product-tagline">Your fun tagline goes here.</p>
+    <img src="{{logo_img}}" alt="Hero Image" />
+    <h1 class="product-name">{{product}}</h1>
+    <p class="product-tagline">{{tagline}}</p>
   </header>
 
   <main>
     <section>
       <h2>About the Project</h2>
       <p class="about-text">
-        This cartoonish creation is over-the-top, colorful, and utterly unnecessary — a masterpiece of playful overengineering for maximum whimsy.
+        {{description}}
       </p>
     </section>
 
@@ -220,5 +222,6 @@
       }, 1500);
     }
   </script>
+  <script src = "{% static 'main/js/widget.js' %}"></script>
 </body>
 </html>

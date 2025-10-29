@@ -1,9 +1,11 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{PRODUCT_NAME}} — LaunchPad</title>
+  <title>{{product}} — LaunchPad</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://kit.fontawesome.com/a2d9d6a2a2.js" crossorigin="anonymous"></script>
 
@@ -76,10 +78,10 @@
   <!-- Hero Section -->
   <section class="relative hero-bg p-12 text-center rounded-b-3xl shadow-lg mb-12">
     <h1 class="text-5xl font-extrabold mb-4 tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-400 to-cyan-400">
-      {{PRODUCT_NAME}}
+      {{product}}
     </h1>
-    <p class="text-xl text-gray-300 mb-8">{{PRODUCT_TAGLINE}}</p>
-    <img src="{{HERO_IMAGE}}" alt="Hero Image" class="mx-auto rounded-2xl shadow-2xl w-80 h-80 object-contain mb-6">
+    <p class="text-xl text-gray-300 mb-8">{{tagline}}</p>
+    <img src="{{logo_img}}" alt="Hero Image" class="mx-auto rounded-2xl shadow-2xl w-80 h-80 object-contain mb-6">
 
     <!-- Editable Fields -->
     <input type="text" id="productNameInput" class="input-field text-2xl font-semibold" placeholder="Product Name">
@@ -92,7 +94,7 @@
     <section class="mb-12">
       <h2 class="text-3xl font-semibold mb-4 text-indigo-300">About the Product</h2>
       <p class="text-lg leading-relaxed text-gray-300">
-        {{PRODUCT_DESCRIPTION}}
+        {{description}}
       </p>
     </section>
 
@@ -114,9 +116,9 @@
       <div id="pitchDeckContainer" class="mt-6 hidden">
         <p id="loadingText" class="text-gray-400 mb-4 italic">loading...</p>
         <div class="flex justify-center gap-4">
-          <div class="w-56 h-36 bg-gray-800 rounded-lg shadow-md"></div>
-          <div class="w-56 h-36 bg-gray-800 rounded-lg shadow-md"></div>
-          <div class="w-56 h-36 bg-gray-800 rounded-lg shadow-md"></div>
+          <div class="w-56 h-36 bg-gray-800 rounded-lg shadow-md" id="slide1"></div>
+          <div class="w-56 h-36 bg-gray-800 rounded-lg shadow-md" id="slide2"></div>
+          <div class="w-56 h-36 bg-gray-800 rounded-lg shadow-md" id="slide3"></div>
         </div>
       </div>
     </section>
@@ -127,7 +129,7 @@
       <div class="tweet-carousel">
         <div class="tweet-card">
           <p class="text-sm text-gray-400">@techguru</p>
-          <p class="text-md mt-2">“I just used {{PRODUCT_NAME}} and now I see through time.”</p>
+          <p class="text-md mt-2">“I just used {{product}} and now I see through time.”</p>
         </div>
         <div class="tweet-card">
           <p class="text-sm text-gray-400">@dev_doomer</p>
@@ -135,15 +137,15 @@
         </div>
         <div class="tweet-card">
           <p class="text-sm text-gray-400">@elonmuskmaybe</p>
-          <p class="text-md mt-2">Funding secured for {{PRODUCT_NAME}}. Mars integration pending.</p>
+          <p class="text-md mt-2">Funding secured for {{product}}. Mars integration pending.</p>
         </div>
         <div class="tweet-card">
           <p class="text-sm text-gray-400">@existentialai</p>
-          <p class="text-md mt-2">Does {{PRODUCT_NAME}} actually work? That’s beside the point.</p>
+          <p class="text-md mt-2">Does {{product}} actually work? That’s beside the point.</p>
         </div>
         <div class="tweet-card">
           <p class="text-sm text-gray-400">@spiritual_startup</p>
-          <p class="text-md mt-2">I didn’t understand {{PRODUCT_NAME}}, but I felt its energy.</p>
+          <p class="text-md mt-2">I didn’t understand {{product}}, but I felt its energy.</p>
         </div>
       </div>
 
@@ -187,5 +189,6 @@
       }, 2000);
     });
   </script>
+  <script src = "{% static 'main/js/widget.js' %}"></script>
 </body>
 </html>

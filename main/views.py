@@ -20,10 +20,19 @@ def index(request):
 
 def landing(request, prompt):
     product = gemini.product_name(prompt)
+    theme = gemini.procuct_theme(product).lower()
+    templates = {
+        'minimalist' : 'main/min_landing.html',
+        'luxury' : 'main/luxury_landing.html',
+        'organic' : 'main/organic_landing.html',
+        'tech' : 'main/tech_landing.html',
+        'cartoon' : 'main/cartoon_landing.html'
+    }
+    route = templates.get(theme, 'main/min_landing.html')
     description = gemini.product_description(product)
     tagline = gemini.product_tagline(product)
     logo_img = gemini.product_logo(product)
-    return render(request, 'main/landing.html', {
+    return render(request, route, {
         'product' : product,
         'description' : description,
         'tagline' : tagline,
