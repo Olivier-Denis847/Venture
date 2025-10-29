@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from django import forms
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, JsonResponse
 from django.urls import reverse
+import json
 
 from main import gemini
 
@@ -19,6 +20,18 @@ def index(request):
 
 def landing(request, prompt):
     product = gemini.product_name(prompt)
+    description = gemini.product_description(product)
+    tagline = gemini.product_tagline(product)
+    logo_img = gemini.product_logo(product)
     return render(request, 'main/landing.html', {
-        'product' : product
+        'product' : product,
+        'description' : description,
+        'tagline' : tagline,
+        'logo_img' : logo_img
     })
+
+def slides(request):
+    data = json.loads(request.body)    
+    product = data.get('product')
+    mode = int(data.get('mode'))
+    return JsonResponse({'url':gemini.product_slide(product, mode)}, status = 200)

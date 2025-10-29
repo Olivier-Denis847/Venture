@@ -22,4 +22,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
     path('landing/<str:prompt>', views.landing, name='landing'),
+    path('slide', views.slides, name='slides')
 ]
