@@ -3,6 +3,7 @@ from django import forms
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 
+from main import gemini
 
 class promptForm(forms.Form):
     prompt = forms.CharField(label='Enter your prompt', max_length=15)
@@ -17,4 +18,7 @@ def index(request):
                   {'form': promptForm()})
 
 def landing(request, prompt):
-    return render(request, 'main/landing.html')
+    product = gemini.product_name(prompt)
+    return render(request, 'main/landing.html', {
+        'product' : product
+    })
